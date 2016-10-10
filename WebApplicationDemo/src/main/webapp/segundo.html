@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script>
+            function envioDatos(destino){
+                document.Formulario1.action=destino;
+                document.Formulario1.submit();
+            }
+        </script>   
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form name="Formulario1" action="mailto: vtin1990@gmail.com?subject=Formulario de Correo" method="POST" enctype="text/plain">
+            Escribe tu apellido<input type="text" name="Apellido" value="" size="10" /><br>
+            Introduce tus comentarios<br>
+            <textarea name="comentarios" rows="4" cols="20"></textarea><br>
+            Elige tu color preferido<br>
+            <select name="ColoresPreferidos">
+            <option value="R">Rojo</option>
+            <option value="A">Azul</option>
+            <option value="M">Marrón</option>
+            <option value="N" SELECTED>Naranja</option>
+            <option value="V">Verde</option>
+            </select>
+            <br>
+            Elige los temas que te interesan
+            <br>
+            <input type="checkbox" name="Tema" value="Jardineria" />Jardineria<br>
+            <input type="checkbox" name="Tema" value="Programacion" />Programacion<br>
+            <input type="checkbox" name="Tema" value="Salud" checked="checked" />Salud<br>
+           ¿Cuál es tu sistema operativo preferido?
+           <br>
+           <input type="radio" name="SOperativo" value="W" />Windows<br>
+           <input type="radio" name="SOperativo" value="L" checked="checked" />Linux<br>
+           <input type="radio" name="SOperativo" value="M" />Mac<br>
+           <br>
+           <input type="submit" value="Enviar datos" />
+           <input type="reset" value="Borrar datos" />
+           <br><br>
+           <input type="button" value="Envío alternativo" onclick="envioDatos('mailto:vtin1990@gmail.com');"/>
+        </form>
+    </body>
+</html>
