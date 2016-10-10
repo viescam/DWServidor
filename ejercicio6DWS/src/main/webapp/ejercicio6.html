@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Venta de electrodomésticos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <form name="VentaElectrodomesticos" action="mailto: electrodomesticos@gmail.com" method="POST">
+	<table bgcolor="#688A08" border="0" width="50%" cellspacing="5" cellpadding="5" align="center">
+		<thead>
+			<th colspan="4" bgcolor="#4B610B"><font size="6px">VENTA DE ELECTRODOMÉSTICOS </font></th>
+		</thead>
+		<tr>
+			<td width="25%" align="center"><img src="http://i2.wp.com/gouforit.com/wordpress/wp-content/uploads/2014/05/lg-50-tv-plasma.jpg?resize=500%2C266" width="200px" height="100px" align="center"/></td>
+			<td width="25%" align="center"><img src="http://www.electroking.es/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/a/cadena-de-musica-samsung-mm-e320-zf.jpg" width="100px" height="100px" align="center"/></td>
+			<td width="25%" align="center"><img src="https://sgfm.elcorteingles.es/SGFM/dctm/IMAGENES/201201/26/00104721214643___P1_600x600.jpg" width="100px" height="100px"/></td>
+			<td width="25%" align="center"><img src="http://www.euronics.es/estaticos/extras/fotos/productos/00/00/00/27/14/3937858-3150.jpg" width="100px" height="100px"/></td>
+		</tr>
+		<tr>
+			<td align="center"><input type="checkbox" name="producto" value="televisor" /></td>
+			<td align="center"><input type="checkbox" name="producto" value="cadenaMusica" /></td>
+			<td align="center"><input type="checkbox" name="producto" value="televisor" /></td>
+			<td align="center"><input type="checkbox" name="producto" value="televisor" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><textarea name="observaciones" rows="4" cols="50" style="background-color:#86B404">Observaciones</textarea></td>
+			<td align="right">Elige la forma de pago:</td>
+			<td><select  name="formaPago">
+				<option value="Visa">Visa</option>
+				<option value="Contado">Contado</option>
+				<option value="Cheque">Cheque</option>
+			</td>
+		</tr>		
+		<tr>
+			<td align="right">Modo de envío/recogida:</td>
+			<td><input type="radio" name="forma_envio" value="Tienda" />Recogida en tienda</td>
+			<td><input type="radio" name="forma_envio" value="Domicilio" />Envío al domicilio</td>
+		</tr>
+		<tr>
+			<td colspan="4" bgcolor="#4B610B" align="center"> <strong><font size="6px">DATOS DEL CLIENTE</font></strong> </td>
+		</tr>
+		<tr>
+			<td align="right"> Nombre: </td>
+			<td align="left"> <input type="text" name="nombre" value="" size="20" /></td>
+			<td align="right"> Apellidos: </td>
+			<td align="left"> <input type="text" name="apellidos" value="" size="20" /></td>
+		</tr>
+		<tr>
+			<td align="right"> DNI: </td>
+			<td align="left"> <input type="text" name="dni" value="" size="20" /></td>
+			<td align="right"> Teléfono: </td>
+			<td align="left"> <input type="text" name="telefono" value="" size="20" /></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center">
+				<input type="submit" value="Realizar Compra" />
+				<input type="reset" value="Borrar Datos" />
+			</td>
+		</tr>
+	</table>
+</form>
+</html>
+
