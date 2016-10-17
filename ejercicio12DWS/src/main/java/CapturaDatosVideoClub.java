@@ -16,7 +16,7 @@ import videoclub.AlquilerBean;
 
 /**
  *
- * @author alumno
+ * @author alumnoDAWFPMislata
  */
 @WebServlet(urlPatterns = {"/CapturaDatosVideoClub"})
 public class CapturaDatosVideoClub extends HttpServlet {
