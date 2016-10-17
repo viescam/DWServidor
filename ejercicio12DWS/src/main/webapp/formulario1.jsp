@@ -1,12 +1,5 @@
-<%-- 
-    Document   : formulario1.jsp
-    Created on : 26-sep-2016, 9:46:53
-    Author     : alumno
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:useBean id="pelicula" scope="request" class="videoclub.Pelicula" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +7,7 @@
     </head>
     <body>
         Complete este formulario:<br>
-        <form name="videoclub" action="AlquilerBean" method="POST">
+        <form name="videoclub" action="CapturaDatosVideoClub" method="POST">
             <table  border="0" width="50%" cellspacing="2" bgcolor="#F5F6CE">
                 <thead>
                     <tr>

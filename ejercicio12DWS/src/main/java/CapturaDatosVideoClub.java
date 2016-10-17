@@ -8,20 +8,22 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import videoclub.Pelicula;
+import videoclub.AlquilerBean;
 
 /**
  *
  * @author alumno
  */
-public class AlquilerBean extends HttpServlet {
+@WebServlet(urlPatterns = {"/CapturaDatosVideoClub"})
+public class CapturaDatosVideoClub extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Pelicula datosPelicula = new Pelicula();
+        AlquilerBean datosPelicula = new AlquilerBean();
         datosPelicula.setNombre(request.getParameter("Nom_Pelicula"));
         datosPelicula.setDiasDeAlquiler(request.getParameter("Num_Dias_Alquiler"));
         datosPelicula.setEdadMaxCliente(request.getParameter("Edad_Cliente"));
