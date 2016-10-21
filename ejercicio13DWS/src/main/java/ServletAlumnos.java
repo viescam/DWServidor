@@ -50,14 +50,21 @@ public class ServletAlumnos extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        boolean swExiste=false;
         String dniIntroducido=request.getParameter("dniIntrod");
         for(int i=0;i<alumnos.size();i++){
             if(dniIntroducido.equals(alumnos.get(i).getDni())){
                 request.setAttribute("alumno", alumnos.get(i));
-                RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/MuestraDatosAlumnos.jsp");
-                rd.forward(request, response);
+                swExiste=true;
             }
+        }
+        if(swExiste==true){
+            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/MuestraDatosAlumnos.jsp");
+            rd.forward(request, response);
+        }else{
+            request.setAttribute("a", dniIntroducido);
+            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/AlumnoNoExistente.jsp");
+            rd.forward(request, response);
         }
         
         /*
