@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Introduce DNI a buscar</h1>
-        <form name="introducirDNI" action="ServletAlumos" method="POST">
+        <form name="introducirDNI" action="ServletAlumnos" method="POST">
             <input type="text" name="dniIntrod" value="" />
             <input type="submit" value="Enviar" />
         </form>
