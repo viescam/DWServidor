@@ -14,6 +14,7 @@ public class AlumnoBean {
     private String apellido1;
     private String apellido2;
     private String dni;
+    
 
     /**
      * @return the nombre
