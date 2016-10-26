@@ -15,17 +15,19 @@
     </head>
     <body>
         <%
-            ArrayList<Producto> productos = (ArrayList<Producto>) request.getAttribute("productosTienda");
-            
+            ArrayList<Producto> productos = (ArrayList<Producto>) request.getSession().getAttribute("productosTienda");            
         %>
-        <form id="tienda">
-            <select name="selCombo"">
+        <p> Elija el producto que desee adquirir</p>
+        <form method="POST" action="CarritoServlet2">
+            <select name="selCombo">
                 <% for(int i=0;i<productos.size();i++){%>
                     <option value=<%=productos.get(i).getId()%>><%=productos.get(i).getNombre()%></option>
                 <%
                     }
                 %>
-            </select> 
+            </select>
+            <input type="submit" value="Escoger Producto" >
         </form>
+                    
     </body>
 </html>
