@@ -8,11 +8,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tienda.Producto;
 
 /**
@@ -25,18 +27,20 @@ public class CarritoServlet extends HttpServlet {
     @Override
     public void init() throws ServletException{
         
-        Producto prod1 = new Producto(1,"leche",1.5);
-        Producto prod2 = new Producto(2,"cerveza",2.35);
-        Producto prod3 = new Producto(3,"pasteles",5.67);
-        Producto prod4 = new Producto(4,"helados",4.15);
-        Producto prod5 = new Producto(5,"cereales",3.28);
-        Producto prod6 = new Producto(6,"ensalada",1.83);
+        Producto prod1 = new Producto(1,"Leche",2);
+        Producto prod2 = new Producto(2,"Cerveza",3);
+        Producto prod3 = new Producto(3,"Pasteles",6);
+        Producto prod4 = new Producto(4,"Helados",4);
+        Producto prod5 = new Producto(5,"Cereales",5);
+        Producto prod6 = new Producto(6,"Ensalada",2);
         productos.add(prod1);  
         productos.add(prod2);
         productos.add(prod3);
         productos.add(prod4);
         productos.add(prod5);
         productos.add(prod6);
+        
+        
                 
         super.init();
     }
@@ -45,24 +49,26 @@ public class CarritoServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("productosTienda", productos);
+        
+        if(request.getParameter("selCombo")!=null){
+            boolean sw=false;
+            long idEscogido = Long.parseLong(request.getParameter("selCombo"));
+            Iterator it = carrito.keySet().iterator();
+            while (it.hasNext()) {
+                long key = (long)it.next();
+                if(key!=idEscogido){
+                    sw=true;
+                    carrito.put(idEscogido, 1);
+                }
+            }
+        }
+        //nos cremamos un objeto de ambito Sesion
+        
+        request.getSession().setAttribute("productosTienda", productos);
         request.setAttribute("carrito", carrito);
         RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/tienda.jsp");
         rd.forward(request, response);
-        
-        /*response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CarritoServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CarritoServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }*/
+                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
