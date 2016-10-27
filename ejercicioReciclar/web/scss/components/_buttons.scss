@@ -1,0 +1,40 @@
+@mixin boton-generic-format($color) {
+    background-color:$color;
+    border: 1px solid darken($color, 10%);
+    box-shadow:2px 2px 5px $color;
+       
+}
+.button{
+    @include boton-generic-format($GreyColor);
+    font-size:16px;
+    padding:10px 10px;
+    color: #ffffff;
+    margin:20px 0;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    margin:10px;
+}
+
+.button--main{
+    @include boton-generic-format(#5cb85c);
+}
+.button--reciclar{
+    @include boton-generic-format(#e65f00);
+}
+.button--reciclar:before{
+    font-family: FontAwesome;
+    content:"\f1b8";
+    padding-right: 10px;
+}
+@for $i from 1 through length($tamanyos){
+    .button--#{nth($tamanyos,$i)}{
+        font-size:10px+$i*2px;
+        padding:4px+$i*2px;
+        border-radius:4px+$i*1px;
+    }
+}
+
+
+
+
