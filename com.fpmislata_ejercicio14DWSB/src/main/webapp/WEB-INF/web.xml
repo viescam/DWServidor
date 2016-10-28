@@ -8,6 +8,10 @@
         <servlet-name>FinalizarCompra</servlet-name>
         <servlet-class>FinalizarCompra</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>prueba</servlet-name>
+        <servlet-class>prueba</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CarritoServlet</servlet-name>
         <url-pattern>/CarritoServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>FinalizarCompra</servlet-name>
         <url-pattern>/FinalizarCompra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>prueba</servlet-name>
+        <url-pattern>/prueba</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

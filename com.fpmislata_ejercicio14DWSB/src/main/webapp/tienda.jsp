@@ -31,7 +31,10 @@
             </select>
             <input type="submit" value="Escoger Producto" >
         </form>
+        <br>
+        <a href="./prueba">Prueba</a>
         <p> Carrito de la compra </p>
+        
         <table border="1px" cellspacing="0" cellpadding="10px">
                 <tr>
                     <td>Producto</td>

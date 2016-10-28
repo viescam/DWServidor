@@ -22,11 +22,11 @@ public class FinalizarCompra extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<Producto> productos= (ArrayList<Producto>) request.getAttribute("productos");
+        ArrayList<Producto> productos = (ArrayList<Producto>) request.getSession().getAttribute("productosTienda");
         
         //nos cremamos un objeto de ambito Sesion
         
-        request.getSession().setAttribute("productosTienda", productos);
+        request.setAttribute("productosTienda", productos);
         RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/compraFinalizada.jsp");
         rd.forward(request, response);
     }
