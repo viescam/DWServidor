@@ -15,6 +15,7 @@
     <body>
         <%
             ArrayList<Producto> productos = (ArrayList<Producto>) request.getSession().getAttribute("productosTienda");
+              
         %>
         <p> Elija el producto que desee adquirir</p>
         <form method="POST" action="CarritoServlet">
@@ -27,7 +28,7 @@
         </form>
         <br>
         <a href="./FinalizarCompra">Finalizar Compra</a>
-        <p> Carrito de la compra </p>
+        <p> Hola<%--<%=textoCarrito%>--%> </p>
         <table border="1px" cellspacing="0" cellpadding="10px">
             <tr>
                 <td>Producto</td>
@@ -40,7 +41,7 @@
                     <td><%=productos.get(i).getNombre()%></td>
                     <td><%=productos.get(i).getCantidad()%></td>
                 </tr>
-            <%    } }   %>
-        </table>           
+            <%    } }  %>
+        </table>
     </body>
 </html>

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Tienda.Producto;
+import javax.servlet.http.Cookie;
 
 /**
  *
@@ -54,17 +55,17 @@ public class CarritoServlet extends HttpServlet {
             throws ServletException, IOException {
         
         if(request.getParameter("selCombo")!=null){
-            boolean sw=false;
             int idEscogido = Integer.parseInt(request.getParameter("selCombo"));
             for(int i=0;i<productos.size();i++){
                 if(idEscogido==productos.get(i).getId()){
                     productos.get(i).setCantidad(productos.get(i).getCantidad()+1);
                 }
-            }
-            
-            
+            }    
         }
-        //nos cremamos un objeto de ambito Sesion
+        Cookie cookie1 = new Cookie("cookie1","probando1");
+        Cookie cookie2 = new Cookie("cookie2","probando2");
+        response.addCookie(cookie1);
+        response.addCookie(cookie2);
         request.getSession().setAttribute("productosTienda", productos);
         RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/tienda.jsp");
         rd.forward(request, response);
