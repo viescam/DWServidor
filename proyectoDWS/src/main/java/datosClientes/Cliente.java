@@ -20,6 +20,21 @@ public class Cliente {
     private String email;
     private String nombreUsuario;
     private String claveAcceso;
+    
+    public Cliente(String nombre, String apellidos, String direccion, String cp, String ciudad, 
+            String provincia, String telefono, String email, String nombreUusario, String claveAcceso){
+        this.nombre=nombre;
+        this.apellidos=apellidos;
+        this.direccion=direccion;
+        this.cp=cp;
+        this.ciudad=ciudad;
+        this.provincia=provincia;
+        this.telefono=telefono;
+        this.email=email;
+        this.nombreUsuario=nombreUsuario;
+        this.claveAcceso=claveAcceso;
+             
+    }
 
     /**
      * @return the nombre
