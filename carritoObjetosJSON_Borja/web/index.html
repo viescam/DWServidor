@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            window.onload=function(){
+                function On_click(){
+                    alert("Foto pulsada"+this.src);
+                }
+                
+                fotos=document.getElementsByTagName("img");
+                for(i=0;i<fotos.length;i++){
+                    fotos[i].addEventListener("click",On_click,false);
+                }
+                alert("pagina cargada")
+                
+                miarray=["a","b","c","d"];
+                alert(miarray.indexOf("c"));
+            }
+        </script>
+        <script src="clases.js" type="text/javascript"></script>
+        <script src="scriptCarrito.js" type="text/javascript"></script>
+        
+    </head>
+    <body>
+        <div>
+            <table border="0" width="300px">
+                <thead>
+                    <tr>
+                        <th colspan="2">Carrito</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="button" name="Articulo 1" value="Articulo 1" onclick="f1()"></td>
+                        <td><input type="button" name="Articulo 2" value="Articulo 2" onclick="f1()"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="button" name="Articulo 4" value="TOTAL" onclick="f2()"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="button" name="Articulo 4" value="mmm i see" onclick="f3()">
+            <img src="https://programarivm.com/wp-content/uploads/2013/04/carrito.jpg" width="100px" height="100px"/>
+            <img src="https://desconocidox.files.wordpress.com/2014/03/aaec5-iconos-sistema-de-pago.jpg?w=384&h=422" width="100px" height="100px"/>
+        </div>
+    </body>
+</html>
