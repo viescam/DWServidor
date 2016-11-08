@@ -32,13 +32,14 @@ public class servletRecogida extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String saludo="ADIOS";
+        String checkBoxValue = request.getParameter("rememberBox");
         Cookie cookieUser = null,cookiePswd = null;
         String usuario = (String) request.getParameter("usuario");
         String password = (String) request.getParameter("password");
         
         
         try{
-            if(request.getParameter("rememberBox").equals("on")){
+            if(checkBoxValue!=null){
                 saludo="HOLA";
                 cookieUser = new Cookie("usuario", usuario);
                 cookieUser.setMaxAge(365*24*60*60);

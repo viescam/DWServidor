@@ -29,7 +29,7 @@
         <form action="servletRecogida" method="post" >
             Usuario:<input type="text" name="usuario" value="<%=usuario%>"/><br>
             Password:<input type="password" name="password" value="<%=password%>" /><br>
-            <input name="rememberBox" type="checkbox" />Recordar mis datos<br>
+            <input name="rememberBox" type="checkbox" checked="checked"/>Recordar mis datos<br>
             <input type="submit" value="Enviar Datos" />
         </form>
     </body>

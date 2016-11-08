@@ -12,9 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        ${saludo}<br>
-        Usuario: ${usuario}<br>
-        Password: ${password}
+        <h2>Hola ${usuario}. Bienvenid@</h2>
         
     </body>
 </html>
