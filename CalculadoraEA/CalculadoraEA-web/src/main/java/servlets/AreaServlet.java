@@ -45,12 +45,11 @@ public class AreaServlet extends HttpServlet {
         double radio=0.0,lado=0.0,altura=0.0,base=0.0,base1=0.0,base2=0.0;
         double area=0.0;
         String tipoOperacion = request.getParameter("area");
-        
-        
-        
+         
         try{
-            InitialContext jndi = new InitialContext();
-            calculadoraService = (CalculadoraServiceLocal) jndi.lookup("java:global/CalculadoraEA-ear/CalculadoraEA-ejb-1.0-SNAPSHOT/CalculadoraService!com.fpmislata.service.CalculadoraServiceLocal");
+            //La busqueda del JNDI no es necesaria ya que en la parte de arriba ya hemnos llamado al EJB correspondiente
+//            InitialContext jndi = new InitialContext();
+//            calculadoraService = (CalculadoraServiceLocal) jndi.lookup("java:global/CalculadoraEA-ear/CalculadoraEA-ejb-1.0-SNAPSHOT/CalculadoraService!com.fpmislata.service.CalculadoraServiceLocal");
             
             switch (tipoOperacion) {
                 case "circulo":{

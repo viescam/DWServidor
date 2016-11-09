@@ -12,6 +12,7 @@
         <title>Respuesta</title>
     </head>
     <body>
+        <h1>${hola}</h1>
         <h1>El área del ${formula} es ${area}</h1>
     </body>
 </html>
