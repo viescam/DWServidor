@@ -31,16 +31,14 @@ public class servletRecogida extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String saludo="ADIOS";
         String checkBoxValue = request.getParameter("rememberBox");
-        Cookie cookieUser = null,cookiePswd = null;
+        Cookie cookieUser,cookiePswd;
         String usuario = (String) request.getParameter("usuario");
         String password = (String) request.getParameter("password");
         
         
         try{
             if(checkBoxValue!=null){
-                saludo="HOLA";
                 cookieUser = new Cookie("usuario", usuario);
                 cookieUser.setMaxAge(365*24*60*60);
                 response.addCookie(cookieUser);
@@ -48,6 +46,20 @@ public class servletRecogida extends HttpServlet {
                 cookiePswd = new Cookie("password", password);
                 cookiePswd.setMaxAge(365*24*60*60);
                 response.addCookie(cookiePswd);
+            }else{
+                Cookie cookies[]=request.getCookies();
+                if (cookies != null) {
+                    for (Cookie cook : cookies) {
+                        if(cook.getName().equalsIgnoreCase("usuario")){
+                            cook.setMaxAge(0);
+                            response.addCookie(cook);
+                        }
+                        if(cook.getName().equalsIgnoreCase("password")){
+                            cook.setMaxAge(0);
+                            response.addCookie(cook);
+                        }
+                    }    
+                } 
             }
             
         }catch(Exception e){
@@ -56,8 +68,7 @@ public class servletRecogida extends HttpServlet {
         }
         request.setAttribute("usuario", usuario);
         request.setAttribute("password", password);
-        request.setAttribute("saludo", saludo);
-        RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/muestra.jsp");
+        RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/bienvenida.jsp");
         //RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/servletMuestra");
         rd.forward(request, response);
                 

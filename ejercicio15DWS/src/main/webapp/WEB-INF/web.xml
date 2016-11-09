@@ -4,17 +4,9 @@
         <servlet-name>servletRecogida</servlet-name>
         <servlet-class>servlets.servletRecogida</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>servletMuestra</servlet-name>
-        <servlet-class>servlets.servletMuestra</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>servletRecogida</servlet-name>
         <url-pattern>/servletRecogida</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>servletMuestra</servlet-name>
-        <url-pattern>/servletMuestra</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

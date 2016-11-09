@@ -13,10 +13,10 @@
     </head>
     <body>
         <%
-            Cookie cookie[]=request.getCookies();
+            Cookie cookies[]=request.getCookies();
             String usuario="",password="";
-            if (cookie != null) {
-                for (Cookie cook : cookie) {
+            if (cookies != null) {
+                for (Cookie cook : cookies) {
                     if(cook.getName().equalsIgnoreCase("usuario")){
                         usuario=cook.getValue();
                     }
