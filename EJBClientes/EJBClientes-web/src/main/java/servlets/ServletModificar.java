@@ -41,21 +41,63 @@ public class ServletModificar extends HttpServlet {
             throws ServletException, IOException {
         
         ArrayList<Cliente> listaClientes = (ArrayList<Cliente>) request.getSession().getAttribute("listaClientes");
+        
         String accion = request.getParameter("accion");
-        if("cambiarDatos".equals(accion)){
+        if(accion.equals("cambiarDatos")){
             String[] clientesMarcados = request.getParameterValues("clienteChecked");
-            ArrayList<Cliente> clientesAModificar = new ArrayList<Cliente>();
-            for(int i=0;i<clientesMarcados.length;i++){
-                int idClienteMarcado = Integer.parseInt(clientesMarcados[i]);
-                for(int j=0;j<listaClientes.size();j++){
-                    if(listaClientes.get(i).getId()==idClienteMarcado){
-                        clientesAModificar.add(listaClientes.get(i));
+            if(clientesMarcados !=null){
+                ArrayList<Cliente> clientesAModificar = new ArrayList<Cliente>();
+                for(int i=0;i<clientesMarcados.length;i++){
+                    int idClienteMarcado = Integer.parseInt(clientesMarcados[i]);
+                    for(int j=0;j<listaClientes.size();j++){
+                        if(listaClientes.get(j).getId()==idClienteMarcado){
+                            clientesAModificar.add(listaClientes.get(j));
+                        }
                     }
                 }
+                request.setAttribute("clientesModificar",clientesAModificar);
+                RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/modificar.jsp");
+                rd.forward(request, response);
+            }else{
+                RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/mantenimiento.jsp");
+                rd.forward(request, response);
             }
-            request.setAttribute("clientesModificar",clientesAModificar);
-            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/modificar.jsp");
+        }
+        if(accion.equals("confirmarModif")){
+            String[] idModificar = request.getParameterValues("id");
+            String[] nombres=request.getParameterValues("nombre");
+            String[] apellidos=request.getParameterValues("apellidos");
+            String[] dnis=request.getParameterValues("dni");
+            String[] telefonos=request.getParameterValues("telefono");
+            String[] emails=request.getParameterValues("email");
+            /*response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet NewServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>"+nombres[0]+"<h1>");
+            out.println("<h1>"+nombres[1]+"<h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+        */
+            for(int i=0;i<idModificar.length;i++){
+                int idCliente=Integer.parseInt(idModificar[i]);
+                Cliente cliente = new Cliente(idCliente,nombres[i],apellidos[i],dnis[i],telefonos[i],emails[i]);
+                mantenimientoService.modificar(cliente);
+                
+            }
+            
+            
+            ArrayList<Cliente> clientes = mantenimientoService.listar();
+            request.getSession().setAttribute("listaClientes", clientes);
+            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/mantenimiento.jsp");
             rd.forward(request, response);
+        
+            
         }
     }
 

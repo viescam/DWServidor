@@ -38,11 +38,11 @@ public class ServletAnyadir extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre="prueba";
-        String apellidos="1";
-        String dni="11111111P";
-        String telefono="999999999";
-        String email="p1@p1.com";
+        String nombre=request.getParameter("nombre");
+        String apellidos=request.getParameter("apellidos");
+        String dni=request.getParameter("dni");
+        String telefono=request.getParameter("telefono");
+        String email=request.getParameter("email");
         
         Cliente clienteAnyadir = new Cliente(0,nombre,apellidos,dni,telefono,email);
         mantenimientoService.anyadir(clienteAnyadir);

@@ -52,6 +52,16 @@ public class MantenimientoService implements MantenimientoServiceLocal {
 
     @Override
     public void modificar(Cliente cliente) {
+        int idCliente=cliente.getId();
+        int posClienteModif=-1;
+        for(int i=0;i<listaClientes.size();i++){
+            if(listaClientes.get(i).getId()==idCliente){
+                posClienteModif=i;
+            }
+        }
+        if(posClienteModif!=-1){
+            listaClientes.set(posClienteModif, cliente);
+        }
     }
     
 }
