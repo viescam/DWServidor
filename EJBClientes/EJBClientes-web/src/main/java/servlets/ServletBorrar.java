@@ -40,10 +40,12 @@ public class ServletBorrar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String[] clientesMarcados = request.getParameterValues("clienteChecked");
-        for(int i=0;i<clientesMarcados.length;i++){
-            int idCliente = Integer.parseInt(clientesMarcados[i]);
-            Cliente clienteABorrar=new Cliente(idCliente,"","","","","");
-            mantenimientoService.borrar(clienteABorrar);
+        if(clientesMarcados!=null){
+            for(int i=0;i<clientesMarcados.length;i++){
+                int idCliente = Integer.parseInt(clientesMarcados[i]);
+                Cliente clienteABorrar=new Cliente(idCliente,"","","","","");
+                mantenimientoService.borrar(clienteABorrar);
+            }
         }
         ArrayList<Cliente> clientes = mantenimientoService.listar();
         request.getSession().setAttribute("listaClientes", clientes);
