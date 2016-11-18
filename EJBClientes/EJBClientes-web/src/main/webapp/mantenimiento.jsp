@@ -48,6 +48,8 @@
         <input type = "submit" onclick=calA() value="Eliminar"/>
         <input type = "submit" onclick=calB() value="Modificar"/>
         </form>
+        <a href="index.jsp" >Volver a Inicio</a>
+        
     
 </html>
 
