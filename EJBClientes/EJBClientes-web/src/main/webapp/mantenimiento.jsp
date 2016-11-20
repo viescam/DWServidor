@@ -27,12 +27,12 @@
         <form action="" method="POST" name="listado">
         <table border="0" cellspacing="0" cellspadding="10">
             <tr>
-                    <td>Nombre</td>
-                    <td>Apellidos</td>
-                    <td>Dni</td>
-                    <td>Telefono</td>
-                    <td>Email</td>
-                    <td></td>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Dni</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th></th>
                 </tr>
             <% for(Cliente cliente : listaClientes){ %>
                 <tr>

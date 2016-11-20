@@ -25,11 +25,11 @@
         <form action=<%=textoAction%> method="POST" name="listado">
         <table border="0" cellspacing="0" cellspadding="10">
             <tr>
-                    <td>Nombre</td>
-                    <td>Apellidos</td>
-                    <td>Dni</td>
-                    <td>Telefono</td>
-                    <td>Email</td>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Dni</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
             </tr>
             <% for(int i=0;i<clientesAModificar.size();i++){%>
                 <tr>
