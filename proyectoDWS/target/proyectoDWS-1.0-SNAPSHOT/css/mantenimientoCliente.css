@@ -1,0 +1,13 @@
+.boton{
+    font-size:16px;
+    padding:10px 10px;
+    background-color: #b3acac;
+    color: #ffffff;
+    margin:20px 0;
+    border:1px solid #b3acac;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #dddddd;
+    display: inline-block;
+    text-decoration: none;
+}
+
